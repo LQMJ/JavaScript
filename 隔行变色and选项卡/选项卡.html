@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #box{
+        width: 500px;
+        margin: 0 auto;
+    }
+    ul{
+        list-style: none;
+    }
+    #tabBox{
+        display: flex;
+        position: relative;
+        top: 1px;
+    }
+    #tabBox li{
+        width: 150px;
+        border: 1px solid gray;
+        padding: 10px;
+        font-size: 30px;
+        color: orangered;
+        background: chartreuse;
+        /* margin-right: 10px; */
+        cursor: pointer;
+    }
+    #box div{
+        height: 150px;
+        line-height: 150px;
+        font-size: 20px;
+        text-align: center;
+        border: 1px solid black;
+        background: blanchedalmond;
+        display: none;
+    }
+    #box div.active{
+        display:block;
+    }
+    #tabBox li.active{
+        display: block;
+    }
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div id="box">
+      <ul id="tabBox">
+          <li class="active">读书</li>
+          <li>编程</li>
+          <li>运动</li>
+      </ul>
+      <div class="active">读书使我睿智</div>
+      <div>编程使我快乐</div>
+      <div>运动使我健康</div>
+
+    </div>
+    <script>
+        let li = document.querySelectorAll('#tabBox li');
+        // console.log(li);
+        let div = document.querySelectorAll('#box div');
+        // console.log(div);
+        for(let i = 0; i<li.length;i++){
+        //    li[i].index = i;  自定义属性
+           li[i].onclick=function(){
+            changeTab(i)  //changeTab(this.index)
+           }
+        }
+        function changeTab(index){
+            for(var i = 0;i < li.length;i++){
+                // 清除class名的样式
+                li[i].className='';
+                div[i].className='';
+            }
+            // 给你点击的元素(当前操作的元素)加上class名样式
+            li[index].className = 'active';
+            div[index].className = 'active';
+
+        }
+     
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

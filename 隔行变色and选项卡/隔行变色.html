@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隔行变色</title>
+    <style>
+        * {
+        padding: 0;
+        margin: 0;
+    }
+    ul {
+        list-style: none;
+        width: 500px;
+        margin: 0 auto;
+        border: 1px solid green;
+        text-align: center;
+    }
+    li {
+        font-size: 40px;
+        color: red;
+      
+    }
+    li:nth-child(even){  
+        background: orchid;
+       
+    }
+    li:nth-child(odd){
+        background: palegreen;
+       
+    }
+    li:hover{
+        background: palegoldenrod;
+    }
+    
+    </style>
+</head>
+<body>
+     <!-- ul#box>li*5{$} -->
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+    let lists = document.querySelector('#box');
+    let li = lists.querySelectorAll('#box li');
+    // console.log(li);
+    let color = null;
+    for(var i = 0; i < li.length;i++){
+       if(i%2===0){
+           li[i].style.background='pink';
+       }else{
+           li[i].style.background='yellow';
+       }
+       li[i].onmouseover=function(){
+           let color = this.style.background
+           this.style.background='skyblue';
+       }
+       li[i].onmouseout=function(){
+           this.style.background=color;
+       }
+    }
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

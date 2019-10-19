@@ -30,8 +30,22 @@ else{
   + continue:跳过当前轮循环,后面代码不执行
   + break:直接跳出整个循环
 - for in循环
-- for of循环（ES6新增）
+   ```js
+     let obj{
+        nume:'xxx',
+        age:17,
+        sex:男
+   }
+    for(let key in obj){
+          console.log(key) //代表对象的属性名,而且是字符串类型的
+          console.log(obj[key])// 代表对象属性名对应的属性值
+      }
+        // 有多少键值对，就会循环多少次
+        // 在for in循环中，获取属性名对应的属性值只能用对象名[属性名]的形式
+        // 如果属性名是数字，那就会按从小到大的照顺序在前面输出
+    ```
 - while循环
+- for of循环（ES6新增）
 - do while循环
 
 ### 函数 function
