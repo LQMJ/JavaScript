@@ -48,6 +48,32 @@ else{
 - for of循环（ES6新增）
 - do while循环
 
+### 对象(Object)
+```js
+     let a = 'name';
+        let pig = {
+            name:'123',
+            age:0 && 1,
+            fire:10000,
+            7:9
+        }
+        // 获取对象中属性名对应的属性值
+        // 对象.属性名
+        // 对象['属性名']
+        // 用变量的形式去获取属性值只能用  对象名[变量名]
+        
+        console.log(pig.name) // =>123    
+        console.log(pig[name]) //=>undefined
+        console.log(pig['name']) // =>123
+        console.log(pig[a]) // =>123
+        // console.log(pig[sss])// =>报错
+        // 如果属性名是数字，他会优先在前面输出，而且从小到大依次排列
+        for(var key in pig){
+            console.log(key)// 属性名
+            console.log(pig[key]) // 对象下属性名对应的属性值
+        }
+```
+
 ### 函数 function
 > 函数就是一个方法或者一个功能体，函数就是把实现某个功能的代码放到一起进行分装，以后想要操作实现这个功能，只需要把函数执行即可 =>“封装”：减少页面中的冗余代码，提高代码重复使用率（低耦合高内聚）
 
@@ -60,21 +86,53 @@ else{
 - arguments
    + 实参集合(类数组)
 - 函数底层运行机制
+```js
+   //  函数体的小括号放的是形参变量（和实参是一一对应的）
+        function fn(m,n){
+            // 函数执行时，实参没给形参赋址，那在函数体中输出形参就是undefined
+            console.log(n,m);//=>20,10
+            //  return把函数执行结果返回出去，阻断代码向下运行
+            return 1;
+        }
+        //  函数名+()：函数执行
+        //  括号里放的是实参
+        console.log(fn(10,20)) 
+        console.log(fn()) //=>1
+        // 函数中的arguments
+        // 1.是一个类数组，里面存储的是所有的实参（实参集合）
+        // 2.它不受形参和实参的影响
+```
 
 ### 匿名函数
 - 函数表达式
 
-```
+```js
 function sum(){
 
 }
+// 这两种写法是一样的
 let fn = function(){}
 fn()
 ```
 
 - 自执行函数
-```
+```js
 (function(n){
     console.log(n)
 })(100)
+```
+- 箭头函数
+```js
+        ((a,b)=>a-b)(1,3)//=>-2
+
+        // 箭头函数没有this和arguments
+        // 如果箭头函数返回的(return)是一个{},那就把{}加上小括号
+        
+        给形参赋默认值//(如果不传实参，就走默认值，传了就走实参)  
+        function fn(m=0,n=0){
+           console.log(m,n) //=>0 0
+           let num = m+n;
+            return num;
+        }     
+        console.log(fn())//=>0
 ```
