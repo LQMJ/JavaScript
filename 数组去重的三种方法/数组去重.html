@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a =[1,2,1,2,1,2,1,2]
+        /*  方法一
+        let newAry = [];
+        a.forEach((item)=>{
+            if(!newAry.includes(item)){
+                newAry.push(item);
+            }
+        })
+       console.log(newAry) */
+
+       /* 方法二
+       for(var i=0;i<a.length;i++){
+           for(var j=i+1;j<a.length;j++){
+               if(a[i]===a[j]){
+                   a.splice(j,1) 数组塌陷
+                   j--;
+               }
+           }
+       }
+       console.log(a); */
+       
+        /*  方法三
+         let s = new Set(a);
+         console.log(s)
+         */
+        </script>
+</body>
+</html>

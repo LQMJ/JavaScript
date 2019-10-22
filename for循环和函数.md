@@ -58,12 +58,12 @@ else{
             7:9
         }
         // 获取对象中属性名对应的属性值
-        // 对象.属性名
-        // 对象['属性名']
+        // 对象.属性名 (属性名如果是数字不能用.的方式来获取)
+        // 对象['属性名'] 基本数据类型不需要加引号
         // 用变量的形式去获取属性值只能用  对象名[变量名]
         
         console.log(pig.name) // =>123    
-        console.log(pig[name]) //=>undefined
+        console.log(pig[name]) //=>undefined  
         console.log(pig['name']) // =>123
         console.log(pig[a]) // =>123
         // console.log(pig[sss])// =>报错
