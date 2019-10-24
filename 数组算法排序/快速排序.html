@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let ary = [23,17,19,32,5,18]
+    
+         function quick(ary) {
+
+            if(ary.length<=1){ // 结束循环条件
+               return ary;
+            }
+            // 获取中间项的值作为基准（把基准在原数组删除）
+            let centerIndex = Math.floor(ary.length/2);
+            let centerValue = ary.splice(centerIndex, 1)[0];
+
+            // 新建来两个空数组，拿原数组的每一项和获取的基准比较，如果小于基准，就放到左边数组，反之放到右边数组
+            let leftAry = [],rightAry = [];
+            for (var i = 0; i < ary.length; i++) {
+        //       if(ary[i]<centerValue){
+        //       leftAry.push(ary[i])
+        //     }
+        //       else{
+        //     rightAry.push(ary[i])
+        // }
+            ary[i]<centerValue?leftAry.push(ary[i]):rightAry.push(ary[i]);
+         }
+            return quick(leftAry).concat(centerValue, quick(rightAry));
+     }
+            console.log(quick(ary))
+   
+    </script>
+</body>
+</html>

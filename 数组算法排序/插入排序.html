@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+var ary = [15, 23, 34, 11, 43, 19];
+         function insert(ary) {
+            // 1、首先抓取第一张牌，放到手里
+            let newAry = []; // 建立一个空数组，存放手里的牌
+            newAry.push(ary[0]); // 抓取第一张牌
+
+            // 这个循环就是每一次抓取的牌
+            for (var i = 1; i < ary.length; i++) {
+               var cur = ary[i];
+               // 抓取的牌跟手里的牌从右往左依次进行比较，如果抓取的牌比手里的某一张牌大了，就把抓的牌放到那一张牌的后面，并且停止比较
+               for(var j = newAry.length-1;j>=0;j--){
+                   if(cur>newAry[j]){
+                       newAry.splice(j+1, 0, cur);
+                       break;
+                   }
+                   // 如果抓取的牌比手里的每一张都小，拿就直接那他放到手里牌的最左边
+                   if(j === 0){
+                       newAry.unshift(cur)
+                   }
+               }
+            }
+            return newAry;
+        }
+
+        console.log(insert(ary))
+     
+        
+    </script>
+</body>
+
+</html>
