@@ -27,7 +27,7 @@
 - DOM (document object model):文档对象模型，提供一些JS的属性和方法，用来操作页面中的DOM元素
 - BOM (browser object model)：浏览器对象模型，提供一些JS的属性和方法，用来操作浏览器
 
-### JS中的变量variable
+### JS中的变量variable(可变的量，把数据存储到一个自定义名字中，用let或者var去声明，达到复用的目的)
 ```
 //ES3
 ver a = 12
