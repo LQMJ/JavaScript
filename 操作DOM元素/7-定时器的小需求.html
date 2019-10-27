@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #box{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: -100px;
+        background: red;
+        transition: 1s;
+    }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+    /*  定时器
+             setTimeout 指定时间之后执行函数（只执行一个）
+            
+             setTimenout( 回调函数,间隔时间,回调函数的实参)
+            
+    关闭定时器
+             clearTimeout(  定时器的返回值，编号)
+             clearInterval(定时器的返回值,编号)
+            
+
+    定时器  
+           setInterval  只要一到指定时间就执行一次函数（重复多次）
+           setInterval( 回调函数,间隔时间,回调函数的实参)
+    关闭定时器:
+            clearTimeout(定时器返回值,编号)
+            clearInterval(定时器返回值，编号)
+ */
+     /*
+       往外面套一个setInterval解决只会上下一次的效果（可以反复上下）
+      let item = setInterval(()=>{
+         setTimeout(()=>{
+             box.style.top=0;
+             setTimeout(()=>{
+                box.style.top = '-100px'
+             },2000)
+         },2000)
+     },4000)
+
+     box.onclick = function(){
+         clearInterval(item)
+     } */
+
+    //   通过递归的方法解决执行一次的问题 （反复调用就会一直执行）
+       let offoo = true;
+     function fn(){
+         setTimeout(()=>{
+             box.style.top = 0;
+             setTimeout(()=>{
+                 box.style.top='-100px';
+                offoo && fn()
+             },2000)
+         },2000)
+     }
+     fn()
+     box.onclick = function(){
+         offoo = false;
+     }
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>
