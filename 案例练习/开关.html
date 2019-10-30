@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+   <style>
+   #box{
+       width: 0;
+       height:0;
+       background: skyblue;
+       transition: .5s;
+   }
+   
+   </style>
+</head>
+<body>
+    <button id="btu">开</button>
+    <div id="box"></div>
+    <script>
+        let onoff = false;// 默认是关闭的状态
+    btu.onclick = function(){
+        if(onoff){
+            box.style.width = '';
+            box.style.height = '';
+            box.style.borderRadius = '';
+            box.style.background = 'skyblue';
+            btu.innerText = '开';
+        }else{
+            box.style.width = '100px';
+            box.style.height = '100px';
+            box.style.borderRadius = '50%';
+            box.style.background = 'pink';
+            btu.innerText = '关';
+        }
+        onoff = !onoff;
+
+    }
+    
+    </script>
+</body>
+</html>

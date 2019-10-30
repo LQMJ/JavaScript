@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#box{
+    width:200px;
+    height: 50px;
+    border:1px solid #000;
+}
+.btns_box{
+    display:none;
+}
+#btn{
+    height:50px;
+    float:right;
+}
+#txt{
+    width:150px;
+    float: left;
+    line-height: 50px;
+}
+#txt_box{
+    display: block;
+}
+</style>
+</head>
+<body>
+    <div id="box">
+        <div id="txt_box">
+            <div id="txt">好好学习,天天向上</div>
+            <button id="btn">修改</button>
+        </div>
+        <div class="btns_box">
+            <input value="好好学习,天天向上" id="text"/>
+            <button id = "qx">取消</button>
+            <button id = 'qd'>确定</button>
+        </div>
+    </div>
+    <script>
+    const txt_box = document.querySelector('#txt_box');
+    const txt = document.querySelector('#txt');
+    const btn = document.querySelector('#btn');
+    const btns = document.querySelector('.btns_box');
+    const qx = document.querySelector('#qx');
+    const qd = document.querySelector('#qd');
+    const txte = document.querySelector('#text')
+    btn.onclick = function(){
+        btns.style.display = 'block';
+    }
+    qd.onclick = function(){
+       txt.innerText = text.value;
+       btns.style.display = 'none'; 
+    }
+    qx.onclick = function(){
+        txt.innerText = text.value;
+        btns.style.display = 'none';
+    }
+    
+
+    
+    
+    </script>
+</body>
+</html>
