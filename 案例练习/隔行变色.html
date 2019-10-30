@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+     #ul{
+         list-style:none ;
+         text-align: center;
+     }
+    </style>
+</head>
+<body>
+   
+        <ul id="ul">
+            <li>我是第1个li</li>
+            <li>我是第2个li</li>
+            <li>我是第3个li</li>
+            <li>我是第4个li</li>
+            <li>我是第5个li</li>
+            <li>我是第6个li</li>
+            <li>我是第7个li</li>
+        </ul>
+
+    <script>
+        let li  = document.querySelectorAll('#ul li')
+        console.log(li)
+         let color = null;
+         li.forEach((item,index)=>{
+             index%2===0?item.style.background = 'pink':item.style.background = 'yellow';
+             item.onmouseover =function(){
+                   color = this.style.background;
+                  this.style.background = 'skyblue';
+              }
+              item.onmouseout = function(){
+                  this.style.background = color;
+              }
+              item.onclick = function(){
+                  alert(this.innerText)
+              }
+         })
+    
+    </script>
+</body>
+</html>

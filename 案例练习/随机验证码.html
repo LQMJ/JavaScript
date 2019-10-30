@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="btn1">开始</button>
+    <button id="btn2">停止</button>
+    <script>
+     let  str = '1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
+     
+        // function random(x,y){
+               
+        //        return Math.floor(Math.random()*y-x)+x;
+        //     }
+
+       function fn(){
+          let str2 = '';
+          let len = str.length-1;
+          for(let i = 0;i<4;i++){
+              str2 += str[Math.floor(Math.random()*len)]
+          }
+          box.innerText = str2;
+          return  str2;
+        }
+        fn()
+        let r;
+       btn1.onclick = function(){
+        //    alert(1)
+        r = setInterval(fn,100) 
+       } 
+       btn2.onclick =function(){
+           clearInterval(r)
+       }
+
+
+        // let str = '1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
+
+        //     let temp = '';
+        //     let len = str.length-1;
+        //     for(let i=0;i<4;i++){
+        //         temp += str[Math.round(Math.random()*(len))]
+        //     }
+        //     console.log(temp);
+    
+    
+    </script>
+</body>
+</html>

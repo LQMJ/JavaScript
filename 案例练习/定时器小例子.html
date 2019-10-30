@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #box {
+            width: 500px;
+            height: 600px;
+            border: 1px solid black;
+            margin: 0 auto;
+            position: relative;
+
+        }
+
+        .r {
+            width: 40px;
+            height: 70px;
+            background: blueviolet;
+            position: absolute;
+            ;
+            top: 0;
+            left: 0;
+            display: none;
+            transition: 1s;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+
+        let divs ;
+           
+        for (let i = 0; i < 10; i++) {
+            let div = document.createElement('div'); //创建div
+            div.onoff = true;
+            div.setAttribute('id', 'k') // 添加div的id
+            divs =  document.querySelectorAll('#k'); // 获取创建的div的元素
+            div.className = 'r'; // 给div添加class样式
+            div.style.left = i * 50 + 'px'; // 每个div之间空10px的间距
+            box.appendChild(div);// 把创建的div插到大的div下面
+            box.onclick = function () {
+               onoff = false;
+            }
+            let onoff = true;
+            function f(){
+                setTimeout(() => {
+                    div.style.display = 'block';
+                    div.style.top = '600px';
+                    setTimeout(()=>{
+                        div.style.top = '-100px';
+                       onoff && f()
+                    },1000)
+                },1000)
+            }
+            f()
+
+        }
+        console.log(divs)
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

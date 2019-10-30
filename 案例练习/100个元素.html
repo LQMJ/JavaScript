@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+    
+    
+    </style>
+
+</head>
+<body id="body">
+    <script>
+       let ul = document.createElement('ul');
+       body.appendChild(ul);
+       ul.setAttribute('id','ul')
+       
+       for(let i = 0; i<105 ; i++){
+        let li = document.createElement('li');
+         ul.appendChild(li);
+         ul.style.width='306px';
+         li.innerText = '';
+         li.style.float = 'left';
+         li.style.width = '20px';
+         li.style.height = '20px';
+         li.style.listStyle = 'none';
+         i%2===0?li.style.background = 'pink':li.style.background = 'yellow';
+         
+       }
+
+    
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0%;
+    }
+    .active{
+        background: yellow;
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <script>
+    
+       let str = 'abqwertyabqweyuiopabasdfghabxcvbnmab'
+      /* 
+    
+        function sbustr(str){
+            let n = 0;
+            let num = [];
+             for(let  i =0 ;i<str.length;i++){
+                 if(str[i]==='a'&&str[i+1]==='b'){
+                     n++;
+                     num.push(i)
+                 }
+             }
+             return (n,num);
+        }
+        let cc = sbustr(str)
+        console.log(cc) */
+
+         function fn(strAll,str){
+        console.time('计时器')
+        let ary = [];
+        for(let i=0;i<strAll.length;i++){
+            if(strAll[i] === str[0] && strAll[i+1] === str[1]){
+                ary.push(i);
+                i++;
+            }
+        }
+        console.timeEnd('计时器')
+        return str + '出现了' + ary.length + ';依次出现在' + ary;
+    }
+    console.log(fn(str,'ab'))
+    
+    </script>
+</body>
+</html>

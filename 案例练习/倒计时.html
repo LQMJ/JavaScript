@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+    function fn(){
+       let d = new Date(2019,9,30,18,30) // 未来时间
+       let x = new Date;//现在时间
+       let t = Math.floor((d - x)/1000);
+       let day = Math.floor(t/86400);
+       t%=86400;
+       let h = Math.floor(t/3600);
+       t%=3600;
+       let mi = Math.floor(t/60);
+       t%=60;
+       box.innerText = day+'天'+h+'小时'+mi+'分钟'+t+'秒';
+    }
+    fn()
+    setInterval(fn,1000)
+    
+    
+    
+    </script>
+
+</body>
+</html>

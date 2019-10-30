@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="v1">
+    <select name="" id="s1">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+        <option>%</option>
+    </select>
+    <input type="text" id="v2">
+    
+   <span id="sp">?</span>
+    <button id="btn">计算</button> 
+    <script>
+     btn.onclick=function(){
+        let v1v = v1.value;
+        let v2v = v2.value;
+        let s1v = s1.value;
+        if(v1v){
+            v1v = parseFloat(v1v);
+            if(isNaN(v1v)){
+                alert('请输入正确内容'); 
+            }else{ 
+                if(s1v === '+'){
+                    sp.innerText = Number(v1v) + Number(v2v);
+                }else if(s1v === '-'){
+                    sp.innerText = v1v - v2v;
+                }else if(s1v === '*'){
+                    sp.innerText = v1v * v2v;
+                }else if(s1v === '/'){
+                    sp.innerText = v1v / v2v;
+                }else if(s1v === '%'){
+                    sp.innerText = v1v % v2v;
+                }
+            }
+        }else{
+            alert('v1内容不能为空')
+        }
+     }
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   <style>
+   .r{
+       width: 50px;
+       height: 50px;
+       background: blueviolet;
+       transition: 0.5s;
+       top: 0;
+       left: 0;
+       position: absolute;
+   }
+   #box{
+       
+       position: relative;
+   }
+   
+   </style>
+</head>
+<body>
+    <div id="box" ></div>
+    <script>
+       for(var i=0;i<10;i++){
+           let div = document.createElement('div');
+           console.dir(div)
+           div.onoff = true;
+           div.className = 'r';
+           div.style.left = i*60+'px';
+           div.onclick = function(){
+               this.style.top = this.onoff?'300px':'0';
+               this.onoff = !this.onoff;
+           }
+           box.appendChild(div)
+       }
+    
+    
+    
+    </script>
+</body>
+</html>
