@@ -20,9 +20,9 @@
     <script>
     
        let str = 'abqwertyabqweyuiopabasdfghabxcvbnmab'
-      /* 
+      
     
-        function sbustr(str){
+        function fn(str){
             let n = 0;
             let num = [];
              for(let  i =0 ;i<str.length;i++){
@@ -33,22 +33,22 @@
              }
              return (n,num);
         }
-        let cc = sbustr(str)
-        console.log(cc) */
+        let cc = fn(str)
+        console.log(cc)
 
-         function fn(strAll,str){
-        console.time('计时器')
-        let ary = [];
-        for(let i=0;i<strAll.length;i++){
-            if(strAll[i] === str[0] && strAll[i+1] === str[1]){
-                ary.push(i);
-                i++;
-            }
-        }
-        console.timeEnd('计时器')
-        return str + '出现了' + ary.length + ';依次出现在' + ary;
-    }
-    console.log(fn(str,'ab'))
+    //      function fn(strAll,str){
+    //     console.time('计时器')
+    //     let ary = [];
+    //     for(let i=0;i<strAll.length;i++){
+    //         if(strAll[i] === str[0] && strAll[i+1] === str[1]){
+    //             ary.push(i);
+    //             i++;
+    //         }
+    //     }
+    //     console.timeEnd('计时器')
+    //     return str + '出现了' + ary.length + ';依次出现在' + ary;
+    // }
+    // console.log(fn(str,'ab'))
     
     </script>
 </body>

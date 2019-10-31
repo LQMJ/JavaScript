@@ -1,12 +1,12 @@
 ###  Math
 -  Math.floor() 向下取整
  ```js
-        Math.floor(16,9);// =>16
+        Math.floor(16.3);// =>16
 ```
 
 -  Math.ceil() 向上取整
 ```js
-        Math.ceil(16,7)// =>7
+        Math.ceil(16.3)// =>17
     ``` 
 -  Math.abs()  取绝对值
 ```js
