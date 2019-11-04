@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="price.css" />
+	</head>
+
+	<body onselectstart="return false;">
+		<div class="wrap">
+			<div class="box">
+				<ul class="list">
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>12.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>10.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>8.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>8元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>14.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li>
+				</ul>
+				<div class="info">
+					<span>商品公合计：<em>0</em>件</span>
+					<span>共花费了：<em>0</em>元</span>
+					<br />
+					<br />
+					<span>其中最贵的商品单价是：<em>0</em>元</span>
+				</div>
+			</div>
+		</div>
+		<script>
+
+			function cplj(cls){
+               this.ul = document.querySelector('.list'); // 获取ul
+			//    console.log(this.ul)
+			   this.li = this.ul.querySelectorAll('li'); // 获取li
+			//    console.log(this.li)
+			 this.hjj = this.ul.nextElementSibling.firstElementChild.firstElementChild; //获取商品合计小框
+			//  console.log(this.hjj)
+			this.ghf = this.ul.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild; //获取共花费的小框
+			// console.log(this.ghf)
+			this.zg = this.ul.nextElementSibling.lastElementChild.firstElementChild;//获取最贵商品单价的小框
+			// console.log(this.zg)
+			this.num = 0;
+			this.hh = 0;
+			this.ary = [];
+            }
+			cplj.prototype.j = function(){
+				let that = this;
+				this.li.forEach((item,index)=>{  //循环li
+			   let jian = this.li[index].firstElementChild;  // 获取减号框
+			//    console.log(jian)
+			   let jia = this.li[index].lastElementChild.previousElementSibling; // 获取加号框
+			   console.log(jia)
+			   let js = this.li[index].firstElementChild.nextElementSibling; // 获取件数小框
+			   console.log(js)
+			   let dj = this.li[index].lastElementChild.firstElementChild; //获取单价小框
+			//    console.log(dj)
+			   let xj = this.li[index].lastElementChild.lastElementChild; // 获取小计框
+			//    console.log(xj)
+			  this.li[index].lastElementChild.style.width = '245px'; //设置小计框的宽度
+			 
+			    jia.onclick =function(){
+					js.innerText = parseFloat(js.innerText)+1; // 件数值加1
+					let val = parseFloat(dj.innerText); // 单件的innerText
+					let val2 = js.innerText;    // 件数的innertext
+					xj.innerText = val*val2 + '元'; // 小计的innerText
+                    that.hjj.innerText = ++that.num;  // 合计件数的innerText
+					that.ghf.innerText = that.hh += val; // 共花费的innerText
+					that.ary.push(val);
+					that.zg.innerText = Math.max(...that.ary); // 最贵的innerText
+				}	
+				jian.onclick = function(){
+					if(js.innerText>0){
+					js.innerText = parseFloat(js.innerText)-1; //件数值减1
+					let val = parseFloat(dj.innerText);//单件的innerText
+					let val2 = js.innerText;  // 件数的innertext
+					xj.innerText = val*val2 + '元';  // 小计的innerText
+                    that.hjj.innerText = --that.num;  // 合计件数的innerText
+					that.ghf.innerText = that.hh -= val; // 共花费的innerText
+					that.ary.splice(that.ary.indexOf(val),1);
+					that.zg.innerText = Math.max(...that.ary); //最贵的innerText
+					if(that.ary.length === 0){
+						that.zg.innerText = 0; // 清零
+					}
+					}
+				}
+			 })    
+			}
+			let h = new cplj('list')
+			h.j();
+		</script>
+	</body>
+
+</html>

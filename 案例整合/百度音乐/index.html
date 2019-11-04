@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body,
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="baidu.css" />
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="baidu">
+			<ul id="list">
+				<li>
+					<div></div>
+					<span>泡沫</span>
+					<span>邓紫棋</span>
+				</li>
+				<li>
+					<div></div>
+					<span>说爱你</span>
+					<span>蔡依林</span>
+				</li>
+				<li>
+					<div></div>
+					<span>稻香</span>
+					<span>周杰伦</span>
+				</li>
+				<li>
+					<div></div>
+					<span>我的梦</span>
+					<span>张靓颖</span>
+				</li>
+				<li>
+					<div></div>
+					<span>怎么说我不爱你</span>
+					<span>萧敬腾</span>
+				</li>
+				<li>
+					<div></div>
+					<span>无处安放</span>
+					<span>白若溪</span>
+				</li>
+			</ul>
+			<div class="select">
+				<span class="selectAll"></span>
+				<span>全选</span>
+				<div class="others">
+					<span><em></em>收藏</span>
+					<span><em></em>添加</span>
+					<span><em></em>删除</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+     
+	 function ghbs(id){
+		 this.ul = document.querySelector('#list');
+		//  console.log(this.ul) 获取ul
+		 this.li = this.ul.querySelectorAll('li')
+		//  console.log(this.li) 获取li
+		 this.div = this.ul.querySelectorAll('div')
+		//  console.log(this.div) 获取div的小框
+		this.span = this.ul.nextElementSibling.firstElementChild
+		//  console.log(this.span) 获取全选的小框
+		this.hr('onmouseover')  //调用滑入事件
+	    this.hc('onmouseout')  // 调用滑出事件
+	    this.dj('onclick')  // 调用div小框的点击事件
+	    this.qx() // 调用全选的点击事件
+	 }
+	 ghbs.prototype.bs = function(ee,ii){  //隔行变色
+			 ii%2===0?ee.style.background = 'pink':ee.style.background = 'yellow';			 
+	 }
+
+	 ghbs.prototype.hr = function(rr){ //  滑入事件
+		 this.li.forEach((item,index)=>{
+			//  console.log(this)
+			 this.bs(item,index)  // 调用变色事件
+			 item[rr] = function(){
+			  item.style.background = 'skyblue'  // 滑入变蓝色
+
+			 } 
+			
+		 })
+	 }
+	 ghbs.prototype.hc = function(cc){  // 滑出事件
+		 let that = this;
+		 this.li.forEach((item,index)=>{
+			 item[cc] = function(){
+				 if(that.div[index].innerText===''){ // 如果div的内容是空的话那么滑出还是原来的颜色
+					that.bs(item,index) // 调用变色事件
+				 }
+			 }
+		 })
+	 }
+     ghbs.prototype.dj = function(jj){  // div小框的点击事件函数
+		 let that = this;
+		//  console.log(that.div)
+		 that.div.forEach((item,index)=>{ // 循环div
+			 let ary = [] ;   // 创建一个空数组
+			 item[jj] = function(){   // 点击事件触发
+				// alert(1)
+			if(item.innerText === ''){ // 判断当前项的内容是否为空,成立执行下面代码
+                    item.innerText = '√';    // 给当前项的内容赋值为 '√'
+					that.div.forEach((item)=>{  // 循环div
+                       if(item.innerText==='√'){   // 判断当前项内容是否为 '√',成立执行下面代码
+						   ary.push(true);     //  给创建的空数组里面push一个值
+					   }
+					})
+					if(ary.length === that.div.length){  // 如果数组的length等于div的length
+						that.span.innerText = '√'  // 执行给全选的小框内容赋值为 '√'
+					}    
+			 }else{  
+				 item.innerText = '';  // 给当前项的内容赋值为 ''
+				 ary.pop()  // 删除数组中的一项
+				 that.span.innerText = '';  // 执行给全选的小框内容赋值为 ''
+				 
+			 }
+			}
+		 })
+	 }
+	 ghbs.prototype.qx = function(){  //全选事件函数
+		  let that = this;
+		//   console.log(this.span)
+		 this.span.onclick = function(){  // 点击事件
+			 if(this.innerText === ''){  // 判断全选框的内容是否为空
+				 this.innerText = '√'  // 执行给全选的小框内容赋值为 '√'
+				 that.div.forEach((item,index)=>{  // 循环div小框
+					 item.innerText = '√';  // 给每一个div小框赋值为 '√'
+				    //   console.log(that.li)
+					 that.li[index].style.background = 'skyblue'; // 给li的每一项都添加这个颜色
+				 })
+
+			 }else{
+				this.innerText = '' //执行给全选的小框内容赋值为 ''
+				 that.li.forEach((item,index)=>{
+					 that.div[index].innerText = ''; //给每一个div小框赋值为 ''
+					//  console.log(that.li)
+					that.bs(item,index) // 调用变色事件
+				 })
+			 }
+		 }
+	 }
+	 let x = new ghbs('list') // 创建实例对象
+	//  x.bs()
+	
+	 
+	  
+	
+	</script>
+</body>
+
+</html>
