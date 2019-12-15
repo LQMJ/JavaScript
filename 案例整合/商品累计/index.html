@@ -90,21 +90,16 @@
 			cplj.prototype.j = function(){
 				let that = this;
 				this.li.forEach((item,index)=>{  //循环li
-			   let jian = this.li[index].firstElementChild;  // 获取减号框
-			//    console.log(jian)
-			   let jia = this.li[index].lastElementChild.previousElementSibling; // 获取加号框
-			   console.log(jia)
-			   let js = this.li[index].firstElementChild.nextElementSibling; // 获取件数小框
-			   console.log(js)
-			   let dj = this.li[index].lastElementChild.firstElementChild; //获取单价小框
-			//    console.log(dj)
-			   let xj = this.li[index].lastElementChild.lastElementChild; // 获取小计框
-			//    console.log(xj)
-			  this.li[index].lastElementChild.style.width = '245px'; //设置小计框的宽度
+			   let jian = item.firstElementChild;  // 获取减号框
+			   let jia =item.lastElementChild.previousElementSibling; // 获取加号框
+			   let js = item.firstElementChild.nextElementSibling; // 获取件数小框
+			   let dj = item.lastElementChild.firstElementChild; //获取单价小框
+			   let xj = item.lastElementChild.lastElementChild; // 获取小计框
+			  item.lastElementChild.style.width = '245px'; //设置小计框的宽度
 			 
 			    jia.onclick =function(){
 					js.innerText = parseFloat(js.innerText)+1; // 件数值加1
-					let val = parseFloat(dj.innerText); // 单件的innerText
+					let val = parseFloat(dj.innerText); // 单价的innerText
 					let val2 = js.innerText;    // 件数的innertext
 					xj.innerText = val*val2 + '元'; // 小计的innerText
                     that.hjj.innerText = ++that.num;  // 合计件数的innerText

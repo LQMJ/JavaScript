@@ -64,7 +64,7 @@
 	</div>
 	<script>
      
-	 function ghbs(id){
+	 function Ghbs(id){
 		 this.ul = document.querySelector('#list');
 		//  console.log(this.ul) 获取ul
 		 this.li = this.ul.querySelectorAll('li')
@@ -78,11 +78,11 @@
 	    this.dj('onclick')  // 调用div小框的点击事件
 	    this.qx() // 调用全选的点击事件
 	 }
-	 ghbs.prototype.bs = function(ee,ii){  //隔行变色
+	 Ghbs.prototype.bs = function(ee,ii){  //隔行变色
 			 ii%2===0?ee.style.background = 'pink':ee.style.background = 'yellow';			 
 	 }
 
-	 ghbs.prototype.hr = function(rr){ //  滑入事件
+	 Ghbs.prototype.hr = function(rr){ //  滑入事件
 		 this.li.forEach((item,index)=>{
 			//  console.log(this)
 			 this.bs(item,index)  // 调用变色事件
@@ -93,7 +93,7 @@
 			
 		 })
 	 }
-	 ghbs.prototype.hc = function(cc){  // 滑出事件
+	 Ghbs.prototype.hc = function(cc){  // 滑出事件
 		 let that = this;
 		 this.li.forEach((item,index)=>{
 			 item[cc] = function(){
@@ -103,7 +103,7 @@
 			 }
 		 })
 	 }
-     ghbs.prototype.dj = function(jj){  // div小框的点击事件函数
+     Ghbs.prototype.dj = function(jj){  // div小框的点击事件函数
 		 let that = this;
 		//  console.log(that.div)
 		 that.div.forEach((item,index)=>{ // 循环div
@@ -129,7 +129,7 @@
 			}
 		 })
 	 }
-	 ghbs.prototype.qx = function(){  //全选事件函数
+	 Ghbs.prototype.qx = function(){  //全选事件函数
 		  let that = this;
 		//   console.log(this.span)
 		 this.span.onclick = function(){  // 点击事件
@@ -151,7 +151,7 @@
 			 }
 		 }
 	 }
-	 let x = new ghbs('list') // 创建实例对象
+	 let x = new Ghbs('list') // 创建实例对象
 	//  x.bs()
 	
 	 
