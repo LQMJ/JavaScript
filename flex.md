@@ -11,12 +11,12 @@
     + justify-content：space-around;每个元素之间的左右距离平均分布
     + justifly-content：space-evenly;每个元素和每个元素之间左右距离平均分布
 ### 对齐方式
-   - align-item:flex-start; 默认左上对齐
-   - align-item:flex-end; 底部对齐
-   - align-item:baseline; 文本对齐
-   - align-item:stretch(没有设置高度的会被拉扯)
+   - align-items:flex-start; 默认左上对齐
+   - align-items:flex-end; 底部对齐
+   - align-items:baseline; 文本对齐
+   - align-items:stretch(没有设置高度的会被拉扯)
    - 多行对齐
      + align-content:flex-start 默认左上对齐
      + align-content:flex-end  底部对齐
-     + align-items:baseline
+     + align-items:baseline   文本对齐
      + 拉扯:align-items:stretch(没有设置高度的会被拉扯)

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .loading-box{
+          overflow: hidden;
+          width: 100px;
+          height: 100px;
+          margin: 50px auto;
+          background: #d8d8d8;
+          border-radius: 5%;
+      }
+      .loading2{
+          position: relative;
+          width: 46px;
+          height: 46px;
+          margin: 27px auto 0 auto;
+      }
+      .loading2-item1,
+      .loading2-item2,
+      .loading2-item3,
+      .loading2-item4 {
+          width: 16px;
+          height: 16px;
+          border-radius: 100%;
+          background: red;
+      }
+      .loading2-item1 {
+       position: absolute;
+       top: -8px;
+       left: 50%;
+       margin-left: -8px;
+       background: #CDDC39;
+      }
+
+      .loading2-item2 {
+        position: absolute;
+        right: -8px;
+        top: 50%;
+        margin-top: -8px;
+        background: #3F51B5;
+      }
+
+      .loading2-item3 {
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        margin-left: -8px;
+        background: #F44336;
+      }
+      
+      .loading2-item4 {
+        position: absolute;
+        left: -8px;
+        top: 50%;
+        margin-top: -8px;
+        background: #4CAF50;
+      }
+      @keyframes loading2-run {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(90deg);
+      }
+      50% {
+        transform: rotate(180deg);
+      }
+      75% {
+        transform: rotate(270deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+       .loading2 {
+     /* position: relative;
+     width: 46px;
+     height: 46px;
+     margin: 27px auto 0 auto; */
+     animation: loading2-run 2s linear 0s infinite;
+    }
+    </style>
+</head>
+<body>
+    <div class="loading-box">
+        <div class="loading2">
+            <div class="loading2-item1"></div>
+            <div class="loading2-item2"></div>
+            <div class="loading2-item3"></div>
+            <div class="loading2-item4"></div>
+        </div>
+    </div>
+</body>
+</html>
